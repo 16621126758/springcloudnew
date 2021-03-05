@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @Slf4j
 public class PaymentController {
@@ -31,6 +34,7 @@ public class PaymentController {
         if (null!=paymentById){
             return new CommonResult<>(200,"查询成功",paymentById);
         }else {
+            List<String> list = new ArrayList<>();
             return new CommonResult<Payment>(444,"没有对应记录，查询失败",null);
         }
     }
