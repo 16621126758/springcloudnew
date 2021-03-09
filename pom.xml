@@ -12,6 +12,7 @@
     <module>cloud-consumer-order80</module>
       <module>knowledge</module>
     <module>cloud-api-commons</module>
+      <module>cloud-eureka-server7001</module>
   </modules>
   <packaging>pom</packaging>
 
