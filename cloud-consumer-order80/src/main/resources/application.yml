@@ -18,3 +18,8 @@ eureka:
 spring:
   application:
     name: cloud-order-service
+
+
+#CLOUD-PAYMENT-SERVICE:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
