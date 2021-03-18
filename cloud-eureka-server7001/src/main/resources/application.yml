@@ -12,13 +12,13 @@ eureka:
     fetch-registry: false
     service-url:
       #设置与eureka server 交互的地址查询服务和 注册服务都需要依赖这个地方
-            defaultZone: http://eureka7002.com:7002/eureka/   集群模式
+            defaultZone: http://eureka7002.com:7002/eureka/   #集群模式
 #      defaultZone: http://eureka7001.com:7001/eureka/    #单机模式
 
 #下面的配置可以禁用eureka的保护模式     关闭自我保护机制，保证不可用服务被即使提出
-  server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 2000   #；两秒中就剔除
+#  server:
+#    enable-self-preservation: false
+#    eviction-interval-timer-in-ms: 2000   #；两秒中就剔除
 
 
 
