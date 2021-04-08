@@ -15,5 +15,11 @@ public class Payment implements Serializable {
 
     private String serial;
 
-
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", serial='" + serial + '\'' +
+                '}';
+    }
 }
