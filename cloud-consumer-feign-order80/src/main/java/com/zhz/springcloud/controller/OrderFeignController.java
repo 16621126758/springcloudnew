@@ -36,4 +36,10 @@ public class OrderFeignController {
             return new CommonResult<Payment>(444,"没有对应记录，查询失败",null);
         }
     }
+
+
+    @GetMapping(value ="/payment/feign/timeout")
+    public String paumentFeignTimeout(){
+        return paymentFeignService.paumentFeignTimeout();
+    }
 }
