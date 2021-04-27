@@ -2,6 +2,7 @@ package com.zhz.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 /**
  * @Class: PaymentHystrixMain8001
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date: 2021-04-26 22:29
  */
 @SpringBootApplication
+@EnableCircuitBreaker
 public class PaymentHystrixMain8001 {
 
     public static void main(String[] args) {
