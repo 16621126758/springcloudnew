@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 @Slf4j
 @DefaultProperties(defaultFallback = "payment_Global_FallbackMethod",
         commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",
-                value = "2000")})
+                value = "7000")})
 public class OrderHystirxController {
     @Resource
     private PaymentHystrixService paymentHystrixService;

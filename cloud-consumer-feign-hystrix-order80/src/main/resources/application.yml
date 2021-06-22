@@ -9,9 +9,15 @@ eureka:
 
 feign:
   hystrix:
-    enabled: false
+    enabled: true
   client:
     config:
       default:
         connectTimeout: 5000  #单位毫秒
         readTimeout: 5000
+
+
+# 全局设置超时：
+hystrix:
+  metrics:
+    polling-interval-ms: 5000

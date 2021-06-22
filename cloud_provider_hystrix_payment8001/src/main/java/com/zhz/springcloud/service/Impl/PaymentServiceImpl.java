@@ -40,7 +40,7 @@ public class PaymentServiceImpl implements PaymentService {
     public String paymentInfo_TimeOut(Integer id)
     {
         //规定3秒钟正常，5秒异常  超过2秒应该有个兜底的方法。
-        int timeNumber = 1;
+        int timeNumber = 3;
 //        int age = 10/0;   //也会进入下面方法
         try { TimeUnit.MILLISECONDS.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
         return "线程池:  "+Thread.currentThread().getName()+" paymentInfo_TimeOut id:  "+id+"\t"+"O(∩_∩)O哈哈~"+"  耗时(秒): "+timeNumber;
