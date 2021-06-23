@@ -35,14 +35,14 @@ public class PaymentServiceImpl implements PaymentService {
      */
     @Override
     @HystrixCommand(fallbackMethod = "paymentInfo_TimeOutHandler",commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000")   //这个线程的超时时间为3秒钟
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "6000")   //这个线程的超时时间为3秒钟
     })
     public String paymentInfo_TimeOut(Integer id)
     {
         //规定3秒钟正常，5秒异常  超过2秒应该有个兜底的方法。
-        int timeNumber = 3;
+        int timeNumber = 5;
 //        int age = 10/0;   //也会进入下面方法
-        try { TimeUnit.MILLISECONDS.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+        try { TimeUnit.MILLISECONDS.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
         return "线程池:  "+Thread.currentThread().getName()+" paymentInfo_TimeOut id:  "+id+"\t"+"O(∩_∩)O哈哈~"+"  耗时(秒): "+timeNumber;
     }
 
