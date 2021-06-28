@@ -1,6 +1,8 @@
 package com.zhz.springcloud.controller;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.zhz.springcloud.service.PaymentService;
+import java.util.logging.Logger;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,6 +39,14 @@ public class PaymentController {
         String result = paymentService.paymentInfo_TimeOut(id);
         log.info("*****result: "+result);
         return result;
+    }
+
+//    服务熔断
+    @GetMapping("/payment/ciruit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id){
+        String s = paymentService.paymentCircuitBreaker(id);
+        log.info("******result:"+ s);
+        return s;
     }
 
 }

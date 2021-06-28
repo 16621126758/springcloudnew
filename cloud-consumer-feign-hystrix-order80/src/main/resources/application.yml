@@ -5,7 +5,7 @@ eureka:
   client:
     register-with-eureka: false
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/
+    defaultZone: http://eureka7001.com:7001/eureka/·
 
 feign:
   hystrix:
@@ -15,7 +15,7 @@ feign:
       default:
         connectTimeout: 6000  #单位毫秒
         readTimeout: 6000
-#上面这个时间feign的调用时间，feign.hystrix,enable=true 那么如果调用这个fiegn接口的话， 超多1s还是会进入兜底的方法
+#上面这个时间feign的调用时间，feign.hystrix,enable=true 那么如果调用这个fiegn接口的话，超多1s还是会进入兜底的方法
 #所以需要增加如下的配置
 
 # 启动时  总是发现第一个进入的是fallback的方法，因为hystrix 默认超时的时间是1s,如果1秒内没有响应，
