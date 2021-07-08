@@ -33,7 +33,7 @@ public class PaymentController {
         return result;
     }
 
-    @GetMapping("/payment/hystrix/timeout/{id}")
+        @GetMapping("/payment/hystrix/timeout/{id}")
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id)
     {
         String result = paymentService.paymentInfo_TimeOut(id);
@@ -45,6 +45,14 @@ public class PaymentController {
     @GetMapping("/payment/ciruit/{id}")
     public String paymentCircuitBreaker(@PathVariable("id") Integer id){
         String s = paymentService.paymentCircuitBreaker(id);
+        log.info("******result:"+ s);
+        return s;
+    }
+
+    //    服务熔断
+    @GetMapping("/payment/ciruit1/{id}")
+    public String paymentCircuitBreaker1(@PathVariable("id") Integer id){
+        String s = paymentService.paymentCircuitBreaker1(id);
         log.info("******result:"+ s);
         return s;
     }

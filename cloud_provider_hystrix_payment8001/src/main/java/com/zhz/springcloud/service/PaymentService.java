@@ -18,4 +18,6 @@ public interface PaymentService {
 
     String paymentCircuitBreaker(Integer id);
 
+    String paymentCircuitBreaker1(Integer id);
+
 }

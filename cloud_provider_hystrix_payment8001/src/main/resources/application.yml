@@ -6,7 +6,7 @@ spring:
     name: cloud-provider-hystrix-payment
 eureka:
   client:
-    register-with-eureka: false
+    register-with-eureka: true
     fetch-registry: false
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka

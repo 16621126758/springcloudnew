@@ -85,6 +85,27 @@ public class PaymentServiceImpl implements PaymentService {
         return Thread.currentThread().getName()+"/t"+"调用成功，流水号："+serialNumber;
     }
 
+    //    服务熔断-----------------------------
+    @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback",commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"), //是否开启断路器
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"), //请求次数
+//            默认值20.意思是至少有20个请求才进行errorThresholdPercentage错误百分比计算。比如一段时间（10s）内有19个请求全部失败了。错误百分比是100%，
+//            但熔断器不会打开，因为requestVolumeThreshold的值是20. 这个参数非常重要，熔断器是否打开首先要满足这个条件
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "20000"),  //时间窗口期  窗口期是经过多久后恢复一次尝试  短路多久以后开始尝试是否恢复，默认5s
+//            隔10s之后，熔断器会尝试半开(关闭)，重新放进来请求
+//            半开试探休眠时间，默认值5000ms。当熔断器开启一段时间之后比如5000ms，会尝试放过去一部分流量进行试探，确定依赖服务是否恢复。
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "60"), //失败率达到多少后跳闸
+            //上面的意思是十次超过六次请求失败
+
+    })
+    public String paymentCircuitBreaker1( Integer id){
+        if (id < 0){
+            throw new RuntimeException("********id不能为负数");
+        }
+        String serialNumber = IdUtil.simpleUUID();
+        return Thread.currentThread().getName()+"/t"+"调用成功，流水号："+serialNumber;
+    }
+
     public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id){
         return "id 不能为负数，请稍后再试，/(ㄒoㄒ)/~~    id:" +id ;
     }
